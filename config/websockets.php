@@ -23,13 +23,23 @@ return [
      */
     'apps' => [
         [
-            'id' => env('PUSHER_APP_ID'),
-            'name' => env('APP_NAME'),
-            'key' => env('PUSHER_APP_KEY'),
-            'secret' => env('PUSHER_APP_SECRET'),
-            'path' => env('PUSHER_APP_PATH'),
+            'id' => 1,
+            'name' => 'farawlah.test',
+            'key' => 1,
+            'secret' => 1,
+            'path' => 'null',
             'capacity' => null,
-            'enable_client_messages' => false,
+            'enable_client_messages' => true,
+            'enable_statistics' => true,
+        ],
+        [
+            'id' => 2,
+            'name' => '4u.test',
+            'key' => 123456789,
+            'secret' => 987654321,
+            'path' => 'null',
+            'capacity' => null,
+            'enable_client_messages' => true,
             'enable_statistics' => true,
         ],
     ],
@@ -48,7 +58,7 @@ return [
      * Leave this empty if you want to accept requests from all hosts.
      */
     'allowed_origins' => [
-        //
+        '4u.test'
     ],
 
     /*
@@ -59,7 +69,7 @@ return [
     /*
      * This path will be used to register the necessary routes for the package.
      */
-    'path' => 'laravel-websockets',
+    'path' => 'websockets',
 
     /*
      * Dashboard Routes Middleware
@@ -70,6 +80,7 @@ return [
      */
     'middleware' => [
         'web',
+        'auth',
         Authorize::class,
     ],
 
